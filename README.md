@@ -99,5 +99,7 @@ src/
 ## 💡 Author
 
 **Ali Razi**
+
 💻 Data Scientist | Full-stack Developer | Creative Technologist
+
 🌐 LinkedIn: linkedin.com/in/alirazi1992
