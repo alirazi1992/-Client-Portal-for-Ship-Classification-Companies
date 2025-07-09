@@ -1,12 +1,103 @@
-# React + Vite
+# 📁 Client Portal for Ship Classification Companies
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+A modern, respomsive web portal built with **React.js**, featuringg a support tickect system, dashboard, authentication, and role-based routing-tailoraed for ship classification companies and vessel operators.
+---
+## 🌟 Features
+  - 🔐 Simulated Login with Fake Auth or Firebase Integration
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+  - 📊 Dynamic Dashboard View
 
-## Expanding the ESLint configuration
+  - 🧑‍💼 Role-based layout rendering (Admin, Engineer, User)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+  - 📁 Support ticket creation, tracking, and status updates
+
+  - 🌐 Multilingual support (Farsi 🇮🇷 + English 🇺🇸)
+
+  - 🧭 Real-time route protection and redirects
+
+  - 📱 Fully Responsive Layout (Desktop + Mobile)
+
+  - 🎨 Elegant UI with Tailwind CSS
+---
+
+## 🚀 Tech Stack
+
+  - Frontend: React.js (with Vite)
+
+  - Styling: Tailwind CSS
+
+  - Routing: React Router v6
+
+  - Auth: Firebase Authentication (or simulated)
+
+  - State Management: React Context API
+
+  - Notifications: react-toastify
+----
+## 🛠️ Getting Started
+
+### 1. Clone the Repo
+
+```bash
+git clone https://github.com/your-username/client-portal.git
+cd client-portal
+```
+### 2. Install Dependencies
+``` bash
+npm install
+```
+### 3. Run the App
+``` bash
+npm run dev
+```
+----
+## 🧪 Test Login (Simulated Mode)
+You can enter any email and password to log in.
+
+``` bash
+Email: anything@example.com
+Password: anything
+```
+----
+
+## 🧠 Folder Structure
+
+
+src/
+
+├── components/      # Header, Sidebar
+
+├── context/         # AuthProvider, AuthContext
+
+├── hooks/           # useAuth.js
+
+├── pages/           # Login, Dashboard, etc.
+
+├── App.jsx
+
+├── main.jsx
+
+
+----
+
+
+## 📌 To Do
+
+   🔄 Integrate real Firebase Auth (optional)
+
+   📤 Add file upload support
+
+   📱 Add mobile menu toggle
+
+   🔧 Role-based admin panel expansion
+
+   🌍 Add full i18n (language toggle button)
+
+   ----
+
+## 💡 Author
+
+**Ali Razi**
+💻 Data Scientist | Full-stack Developer | Creative Technologist
+🌐 LinkedIn: linkedin.com/in/alirazi1992
