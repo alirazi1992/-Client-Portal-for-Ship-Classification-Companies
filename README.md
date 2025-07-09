@@ -1,7 +1,7 @@
 # 📁 Client Portal for Ship Classification Companies
 
+A modern, responsive web portal built with **React.js**, featuring a support ticket system, dashboard, authentication, and role-based routing — tailored for ship classification companies and vessel operators.
 
-A modern, respomsive web portal built with **React.js**, featuringg a support tickect system, dashboard, authentication, and role-based routing-tailoraed for ship classification companies and vessel operators.
 ---
 ## 🌟 Features
   - 🔐 Simulated Login with Fake Auth or Firebase Integration
