@@ -1,6 +1,6 @@
-// src/components/Header.jsx
 import { FiBell, FiUser, FiSettings, FiLogOut, FiMenu } from 'react-icons/fi';
 import { useState, useEffect, useRef } from 'react';
+import { useAuth } from '../hooks/useAuth';
 
 const Header = ({ toggleSidebar }) => {
   const [time, setTime] = useState(new Date());
@@ -9,6 +9,7 @@ const Header = ({ toggleSidebar }) => {
 
   const userRef = useRef();
   const notifRef = useRef();
+  const { logout } = useAuth();
 
   useEffect(() => {
     const timer = setInterval(() => setTime(new Date()), 1000);
@@ -30,7 +31,6 @@ const Header = ({ toggleSidebar }) => {
 
   return (
     <header className="flex justify-between items-center bg-white px-6 py-4 rounded-md shadow-md">
-      {/* Mobile Hamburger */}
       <div className="md:hidden">
         <button onClick={toggleSidebar} className="text-gray-700 text-xl">
           <FiMenu />
@@ -39,15 +39,20 @@ const Header = ({ toggleSidebar }) => {
 
       <h1 className="text-xl md:text-2xl font-bold text-gray-800">پنل کاربران</h1>
 
-      {/* Right Side Icons */}
       <div className="flex items-center gap-6">
-        <div className="text-sm text-gray-600 hidden sm:block">🕒 {time.toLocaleTimeString('fa-IR')}</div>
+        <div className="text-sm text-gray-600 hidden sm:block">
+          🕒 {time.toLocaleTimeString('fa-IR')}
+        </div>
 
+        {/* Notification Icon */}
         <div className="relative" ref={notifRef}>
-          <button onClick={() => {
-            setNotifDropdownOpen(!isNotifDropdownOpen);
-            setUserDropdownOpen(false);
-          }} className="text-gray-600 hover:text-blue-500 transition">
+          <button
+            onClick={() => {
+              setNotifDropdownOpen(!isNotifDropdownOpen);
+              setUserDropdownOpen(false);
+            }}
+            className="text-gray-600 hover:text-blue-500 transition relative"
+          >
             <FiBell className="text-xl" />
             <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">۳</span>
           </button>
@@ -63,27 +68,42 @@ const Header = ({ toggleSidebar }) => {
           )}
         </div>
 
+        {/* User Menu */}
         <div className="relative" ref={userRef}>
-          <button onClick={() => {
-            setUserDropdownOpen(!isUserDropdownOpen);
-            setNotifDropdownOpen(false);
-          }} className="flex items-center gap-2 hover:opacity-80 transition">
+          <button
+            onClick={() => {
+              setUserDropdownOpen(!isUserDropdownOpen);
+              setNotifDropdownOpen(false);
+            }}
+            className="flex items-center gap-2 hover:opacity-80 transition"
+          >
             <FiUser className="text-xl text-gray-700" />
             <span className="text-sm text-gray-700 font-medium">کاربر</span>
           </button>
           {isUserDropdownOpen && (
             <div className="absolute left-0 mt-2 w-64 bg-white border rounded-lg shadow-lg p-4 z-50 text-right">
               <div className="flex items-center gap-3 mb-4">
-                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Profile" className="w-12 h-12 rounded-full border object-cover" />
+                <img
+                  src="https://randomuser.me/api/portraits/men/32.jpg"
+                  alt="Profile"
+                  className="w-12 h-12 rounded-full border object-cover"
+                />
                 <div>
-                  <div className="font-semibold">دانیال شایگان</div>
+                  <div className="font-semibold">کاربر</div>
                   <div className="text-xs text-gray-500">کد پرسنلی: 7772354646</div>
                 </div>
               </div>
               <hr className="my-2" />
               <ul className="space-y-2 text-sm">
-                <li className="flex items-center gap-2 hover:text-blue-600 cursor-pointer transition"><FiSettings /> تنظیمات حساب</li>
-                <li className="flex items-center gap-2 text-red-500 hover:text-red-700 cursor-pointer transition"><FiLogOut /> خروج</li>
+                <li className="flex items-center gap-2 hover:text-blue-600 cursor-pointer transition">
+                  <FiSettings /> تنظیمات حساب
+                </li>
+                <li
+                  className="flex items-center gap-2 text-red-500 hover:text-red-700 cursor-pointer transition"
+                  onClick={logout}
+                >
+                  <FiLogOut /> خروج
+                </li>
               </ul>
             </div>
           )}
